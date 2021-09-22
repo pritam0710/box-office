@@ -1,10 +1,11 @@
 import React from 'react';
+import MiniPageLayout from '../components/MiniPageLayout';
 
 const Home = () => {
   return (
-    <div>
+    <MiniPageLayout>
       <h1>Home Page!</h1>
-    </div>
+    </MiniPageLayout>
   );
 };
 

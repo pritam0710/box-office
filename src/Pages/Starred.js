@@ -1,11 +1,8 @@
 import React from 'react';
+import MiniPageLayout from '../components/MiniPageLayout';
 
 const Starred = () => {
-  return (
-    <div>
-      <h2>Starred Page</h2>
-    </div>
-  );
+  return <MiniPageLayout>Starred Page</MiniPageLayout>;
 };
 
 export default Starred;
