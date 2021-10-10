@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import ActorGrid from '../Actor/ActorGrid';
+import CustomRadio from '../components/CustomRadio';
 import MiniPageLayout from '../components/MiniPageLayout';
 import { getApi } from '../misc/config';
 import { useLastQuery } from '../misc/custom-hooks';
 import ShowGrid from '../Show/ShowGrid';
+import {
+  RadioInputsWrapper,
+  SearchButtonWrapper,
+  SearchInput,
+} from './Home.styled';
 
 const Home = () => {
   const [input, setInput] = useLastQuery();
@@ -50,7 +56,7 @@ const Home = () => {
 
   return (
     <MiniPageLayout>
-      <input
+      <SearchInput
         type="text"
         placeholder="Search for something"
         onChange={onInputChange}
@@ -58,33 +64,33 @@ const Home = () => {
         value={input}
       />
 
-      <div>
-        <label htmlFor="search-shows">
-          Shows
-          <input
-            type="radio"
+      <RadioInputsWrapper>
+        <div>
+          <CustomRadio
+            label="Shows"
             id="search-shows"
             value="shows"
             checked={isShowsSearch}
             onChange={onRadioChange}
           />
-        </label>
+        </div>
 
-        <label htmlFor="search-actors">
-          Actors
-          <input
-            type="radio"
+        <div>
+          <CustomRadio
+            label="Actors"
             id="search-actors"
             value="people"
             checked={!isShowsSearch}
             onChange={onRadioChange}
           />
-        </label>
-      </div>
+        </div>
+      </RadioInputsWrapper>
 
-      <button type="submit" onClick={onSearch}>
-        Search
-      </button>
+      <SearchButtonWrapper>
+        <button type="submit" onClick={onSearch}>
+          Search
+        </button>
+      </SearchButtonWrapper>
       {renderResults()}
     </MiniPageLayout>
   );
