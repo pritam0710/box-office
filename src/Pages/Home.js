@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import ActorGrid from '../Actor/ActorGrid';
 import MiniPageLayout from '../components/MiniPageLayout';
 import { getApi } from '../misc/config';
+import { useLastQuery } from '../misc/custom-hooks';
 import ShowGrid from '../Show/ShowGrid';
 
 const Home = () => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useLastQuery();
   const [results, setResult] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
 
